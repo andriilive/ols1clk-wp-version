@@ -18,7 +18,8 @@
 ##############################################################################
 
 ###    Author: LiteSpeed
-
+###    Fork GH: https://github.com/andriilive/ols1clk-wp-version/edit/master/ols1clk.sh
+###    Fork Raw: https://raw.githubusercontent.com/andriilive/ols1clk-wp-version/master/ols1clk.sh
 
 TEMPRANDSTR=
 OSNAMEVER=UNKNOWN
@@ -53,10 +54,10 @@ WPPORT=80
 SSLWPPORT=443
 WORDPRESSINSTALLED=
 INSTALLWORDPRESS=0
-INSTALLWORDPRESSPLUS=0
+INSTALLWORDPRESSPLUS=1
 FORCEYES=0
-WPLANGUAGE=en_US
-WPUSER=wpuser
+WPLANGUAGE=cs_CZ
+WPUSER=admin.digitalandy
 WPTITLE=MySite
 SITEDOMAIN=*
 EMAIL=
@@ -66,11 +67,12 @@ ADMINPASSWORD=
 ROOTPASSWORD=
 USERPASSWORD=
 WPPASSWORD=
+WPVERSION='5.6'
 LSPHPVERLIST=(71 72 73 74 80 81 82 83)
 MARIADBVERLIST=(10.2 10.3 10.4 10.5 10.6 10.7 10.8 10.9 10.10 10.11 11.0 11.1 11.2 11.3)
 OLD_SYS_MARIADBVERLIST=(10.2 10.3 10.4 10.5)
-LSPHPVER=82
-MARIADBVER=10.11
+LSPHPVER=80
+MARIADBVER=10.10
 MYSQLVER=8.0
 PERCONAVER=80
 WEBADMIN_LSPHPVER=74
@@ -671,6 +673,7 @@ function download_wordpress
     if [ "${WORDPRESSINSTALLED}" = '0' ];then 
         wp core download \
             --locale=$WPLANGUAGE \
+	    --version=$WPVERSION
             --path=$WORDPRESSPATH \
             --allow-root \
             --quiet
