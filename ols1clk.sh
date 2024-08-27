@@ -673,7 +673,7 @@ function download_wordpress
     if [ "${WORDPRESSINSTALLED}" = '0' ];then 
         wp core download \
             --locale=$WPLANGUAGE \
-	    --version=$WPVERSION
+	    --version=$WPVERSION \
             --path=$WORDPRESSPATH \
             --allow-root \
             --quiet
